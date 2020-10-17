@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using JW_Programming_Exercise.Library.Shared.Enums;
-using JW_Programming_Exercise.Library.Shared.Interfaces;
+using JW_Programming_Exercise.Library.Core.Enums;
 
-namespace JW_Programming_Exercise.Library.Data
+namespace JW_Programming_Exercise.Library.Core.Interfaces
 {
-    public abstract class InputBase : IData
+    public interface IData
     {
         public int RoomWidth { get; set; }
         public int RoomHeight { get; set; }
@@ -12,12 +11,5 @@ namespace JW_Programming_Exercise.Library.Data
         public int RobotStartY { get; set; }
         public Direction InitialDirection { get; set; }
         public IEnumerable<Command> Commands { get; set; }
-
-        public InputBase()
-        {
-            Read();
-        }
-
-        public abstract void Read();
     }
 }

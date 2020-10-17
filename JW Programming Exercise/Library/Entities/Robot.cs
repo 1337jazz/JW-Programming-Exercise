@@ -1,5 +1,6 @@
-﻿using JW_Programming_Exercise.Library.Shared.Enums;
-using JW_Programming_Exercise.Library.Shared.Interfaces;
+﻿using JW_Programming_Exercise.Library.Core.Base;
+using JW_Programming_Exercise.Library.Core.Enums;
+using JW_Programming_Exercise.Library.Core.Interfaces;
 
 namespace JW_Programming_Exercise.Library.Entities
 {
@@ -27,9 +28,7 @@ namespace JW_Programming_Exercise.Library.Entities
                         Direction = Direction == Direction.West ? Direction.North : Direction += 1;
                         break;
 
-                    case Command.WalkForward:
-                        Move();
-                        break;
+                    case Command.WalkForward: Move(); break;
 
                     default: break;
                 }
@@ -38,26 +37,24 @@ namespace JW_Programming_Exercise.Library.Entities
 
         private void Move()
         {
-            switch (Direction)
+            if (CanMove)
             {
-                case Direction.North:
-                    Y--;
-                    break;
+                switch (Direction)
+                {
+                    case Direction.North: Y--; break;
+                    case Direction.East: X++; break;
+                    case Direction.South: Y++; break;
+                    case Direction.West: X--; break;
+                    default: break;
+                }
+            }
+        }
 
-                case Direction.East:
-                    X++;
-                    break;
-
-                case Direction.South:
-                    Y++;
-                    break;
-
-                case Direction.West:
-                    X--;
-                    break;
-
-                default:
-                    break;
+        private bool CanMove
+        {
+            get
+            {
+                throw new System.Exception("TODO: Can move logic");
             }
         }
     }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JW_Programming_Exercise.Library.Shared.Enums;
+using JW_Programming_Exercise.Library.Core.Base;
+using JW_Programming_Exercise.Library.Core.Enums;
 
 namespace JW_Programming_Exercise.Library.Data
 {

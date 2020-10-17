@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
+using JW_Programming_Exercise.Library.Core.Interfaces;
 using JW_Programming_Exercise.Library.Data;
 using JW_Programming_Exercise.Library.Entities;
-using JW_Programming_Exercise.Library.Shared.Interfaces;
 using NUnit.Framework;
 
 namespace UnitTests

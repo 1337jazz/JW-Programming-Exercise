@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using JW_Programming_Exercise.Library.Core.Enums;
+using JW_Programming_Exercise.Library.Core.Interfaces;
 using JW_Programming_Exercise.Library.Data;
-using JW_Programming_Exercise.Library.Shared.Enums;
-using JW_Programming_Exercise.Library.Shared.Interfaces;
 using NUnit.Framework;
 
 namespace UnitTests

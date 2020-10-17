@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using JW_Programming_Exercise.Library.Shared.Enums;
+using JW_Programming_Exercise.Library.Core.Enums;
 
-namespace JW_Programming_Exercise.Library.Entities
+namespace JW_Programming_Exercise.Library.Core.Base
 {
     public abstract class CommandableBase
     {
