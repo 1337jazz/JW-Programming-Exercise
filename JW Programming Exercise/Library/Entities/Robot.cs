@@ -1,16 +1,10 @@
-﻿using System.Collections.Generic;
-using JW_Programming_Exercise.Library.Shared.Enums;
+﻿using JW_Programming_Exercise.Library.Shared.Enums;
 using JW_Programming_Exercise.Library.Shared.Interfaces;
 
 namespace JW_Programming_Exercise.Library.Entities
 {
-    public class Robot
+    public class Robot : CommandableBase
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public Direction Direction { get; private set; }
-        public IEnumerable<Command> Commands { get; private set; }
-
         public Robot(IData data)
         {
             X = data.RobotStartX;
@@ -19,8 +13,52 @@ namespace JW_Programming_Exercise.Library.Entities
             Commands = data.Commands;
         }
 
-        public void Run()
+        protected override void ExecuteCommands()
         {
+            foreach (var command in Commands)
+            {
+                switch (command)
+                {
+                    case Command.TurnLeft:
+                        Direction = Direction == Direction.North ? Direction.West : Direction -= 1;
+                        break;
+
+                    case Command.TurnRight:
+                        Direction = Direction == Direction.West ? Direction.North : Direction += 1;
+                        break;
+
+                    case Command.WalkForward:
+                        Move();
+                        break;
+
+                    default: break;
+                }
+            }
+        }
+
+        private void Move()
+        {
+            switch (Direction)
+            {
+                case Direction.North:
+                    Y--;
+                    break;
+
+                case Direction.East:
+                    X++;
+                    break;
+
+                case Direction.South:
+                    Y++;
+                    break;
+
+                case Direction.West:
+                    X--;
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Library\Data\InputBase.cs" />
     <Compile Include="Library\Data\StdinData.cs" />
+    <Compile Include="Library\Entities\CommandableBase.cs" />
     <Compile Include="Library\Entities\Robot.cs" />
     <Compile Include="Library\Shared\Enums\Command.cs" />
     <Compile Include="Library\Shared\Enums\Direction.cs" />
@@ -56,6 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
