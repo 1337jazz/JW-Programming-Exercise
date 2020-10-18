@@ -32,12 +32,9 @@ namespace JW_Programming_Exercise.Library.Data
                 // Parse commands
                 Commands = TranslateCommands(commands);
             }
-            catch (Exception e) // Example exception handler
+            catch (Exception) // Example exception handler
             {
-                Console.WriteLine("Invalid data. Process aborted.");
-                Console.WriteLine($"Exception details: \n\n {e.Message} \n\n {e.StackTrace}");
-                Console.ReadLine();
-                Environment.Exit(-1);
+                IsError = true;
             }
         }
 

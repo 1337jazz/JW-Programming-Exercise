@@ -15,7 +15,9 @@ namespace JW_Programming_Exercise.Library.Core.Base
         public int RobotStartY { get; set; }
         public Direction InitialDirection { get; set; }
         public IEnumerable<Command> Commands { get; set; }
+        public bool IsError { get; set; }
 
+        // Read by default
         public InputBase(bool read = true)
         {
             if (read) Read();

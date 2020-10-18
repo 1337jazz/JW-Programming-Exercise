@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Library\Core\Base\InputBase.cs" />
     <Compile Include="Library\Data\StdinData.cs" />
-    <Compile Include="Library\Core\Base\CommandableBase.cs" />
     <Compile Include="Library\Entities\Robot.cs" />
     <Compile Include="Library\Core\Enums\Command.cs" />
     <Compile Include="Library\Core\Enums\Direction.cs" />

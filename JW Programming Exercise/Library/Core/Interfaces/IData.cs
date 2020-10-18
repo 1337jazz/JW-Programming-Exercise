@@ -11,5 +11,6 @@ namespace JW_Programming_Exercise.Library.Core.Interfaces
         public int RobotStartY { get; set; }
         public Direction InitialDirection { get; set; }
         public IEnumerable<Command> Commands { get; set; }
+        public bool IsError { get; set; }
     }
 }
