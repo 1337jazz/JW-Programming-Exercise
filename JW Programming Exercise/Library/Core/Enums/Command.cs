@@ -2,8 +2,6 @@
 {
     public enum Command
     {
-        TurnLeft,
-        TurnRight,
-        WalkForward
+        TurnLeft, TurnRight, WalkForward
     }
 }

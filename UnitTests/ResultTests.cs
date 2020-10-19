@@ -16,63 +16,77 @@ namespace UnitTests
         public void FirstExample()
         {
             SetData("5 5\n1 2 N\nRFRFFRFRF\n");
-            Assert.AreEqual("1 3 N", _robot.Result);
+            Assert.AreEqual("Report: 1 3 N", _robot.Report);
         }
 
         [Test]
         public void SecondExample()
         {
             SetData("5 5\n0 0 E\nRFLFFLRF\n");
-            Assert.AreEqual("3 1 E", _robot.Result);
+            Assert.AreEqual("Report: 3 1 E", _robot.Report);
+        }
+
+        [Test]
+        public void CustomExample()
+        {
+            SetData("5 2\n0 1 N\nRFFFRFLL\n");
+            Assert.AreEqual("Report: 3 2 N", _robot.Report);
+        }
+
+        [Test]
+        public void HandlesSmallestRoom()
+        {
+            SetData("0 0\n0 0 E\nRFLFFLRF\n");
+            Assert.AreEqual("Report: 0 0 E", _robot.Report);
         }
 
         [Test]
         public void RobotCannotPassThroughNorthWall()
         {
             SetData("5 5\n0 3 N\nFFFF\n");
-            Assert.AreEqual("0 0 N", _robot.Result);
+            Assert.AreEqual("Report: 0 0 N", _robot.Report);
         }
 
         [Test]
         public void RobotCannotPassThroughEastWall()
         {
             SetData("5 5\n0 0 E\nFFFFFFFFF\n");
-            Assert.AreEqual("5 0 E", _robot.Result);
+            Assert.AreEqual("Report: 5 0 E", _robot.Report);
         }
 
         [Test]
         public void RobotCannotPassThroughSouthWall()
         {
             SetData("5 5\n0 0 S\nFFFFFFFFF\n");
-            Assert.AreEqual("0 5 S", _robot.Result);
+            Assert.AreEqual("Report: 0 5 S", _robot.Report);
         }
 
         [Test]
         public void RobotCannotPassThroughWestWall()
         {
             SetData("5 5\n5 0 W\nFFFFFFFFF\n");
-            Assert.AreEqual("0 0 W", _robot.Result);
+            Assert.AreEqual("Report: 0 0 W", _robot.Report);
         }
 
         [Test]
         public void RobotFollowsFurtherInstructionsAfterBump()
         {
             SetData("5 5\n0 3 N\nFFFFL\n");
-            Assert.AreEqual("0 0 W", _robot.Result);
+            Assert.AreEqual("Report: 0 0 W", _robot.Report);
         }
 
         [Test]
         public void RobotIgnoresInvalidCommands()
         {
             SetData("5 5\n1 2 N\nR!FR£FF.,/R4FRF[%^ ¬ ###d@B\n");
-            Assert.AreEqual("1 3 N", _robot.Result);
+            Assert.AreEqual("Report: 1 3 N", _robot.Report);
         }
 
         [Test]
         public void ExceptionOnInvalidData()
         {
             SetData("invalid data!");
-            Assert.AreEqual("Invalid data", _robot.Result);
+            Assert.AreEqual("Invalid data", _robot.Report);
         }
 
         private void SetData(string data)

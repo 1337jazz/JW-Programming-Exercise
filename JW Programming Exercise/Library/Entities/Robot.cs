@@ -13,7 +13,7 @@ namespace JW_Programming_Exercise.Library.Entities
         public IEnumerable<Command> Commands { get; private set; }
         public int LimitX { get; private set; }
         public int LimitY { get; private set; }
-        public string Result { get; private set; }
+        public string Report { get; private set; }
         public bool DataError { get; set; }
 
         public Robot(IData data)
@@ -28,7 +28,7 @@ namespace JW_Programming_Exercise.Library.Entities
         }
 
         /// <summary>
-        /// The main command to run the Robot and determine the result
+        /// The main command to run the Robot and determine/set the result.
         /// </summary>
         public void Run()
         {
@@ -36,16 +36,18 @@ namespace JW_Programming_Exercise.Library.Entities
             {
                 ExecuteCommands();
                 var direction = (Enum.GetName(typeof(Direction), CurrentDirection)).Substring(0, 1);
-                Result = $"{X} {Y} {direction}";
+                Report = $"Report: {X} {Y} {direction}";
             }
             else
             {
-                Result = "Invalid data";
+                Report = "Invalid data";
             }
         }
 
         /// <summary>
-        /// Execute each command in the command list.
+        /// Execute each command in the command list. If the current direction is North,
+        /// turning left will set the current direction to West, otherwise will
+        /// decrement the enum by 1. The same applies for if the current direction is West.
         /// </summary>
         private void ExecuteCommands()
         {

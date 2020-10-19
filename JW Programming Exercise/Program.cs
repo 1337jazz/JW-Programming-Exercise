@@ -18,7 +18,7 @@ namespace JW_Programming_Exercise
             robot.Run();
 
             // Print the results
-            Console.WriteLine(robot.Result);
+            Console.WriteLine(robot.Report);
         }
     }
 }

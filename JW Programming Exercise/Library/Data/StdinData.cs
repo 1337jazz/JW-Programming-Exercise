@@ -6,6 +6,9 @@ using JW_Programming_Exercise.Library.Core.Enums;
 
 namespace JW_Programming_Exercise.Library.Data
 {
+    /// <summary>
+    /// Standard I/O implementation of InputBase/IData
+    /// </summary>
     public class StdinData : InputBase
     {
         /// <summary>
@@ -44,8 +47,8 @@ namespace JW_Programming_Exercise.Library.Data
         /// <param name="header">The string to split, assumes comma-seperated list of numbers</param>
         /// <param name="splitChar">The char to split by, 'space char' by default</param>
         /// <returns>The original string represented as an array of int</returns>
-        public static int[] ToIntArray(string header, char splitChar = ' ')
-            => header.Split(splitChar).Select(x => int.Parse(x)).ToArray();
+        public static int[] ToIntArray(string str, char splitChar = ' ')
+            => str.Split(splitChar).Select(x => int.Parse(x)).ToArray();
 
         /// <summary>
         /// Laziliy yield commands to the command list; performance
